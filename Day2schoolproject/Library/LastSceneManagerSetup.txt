@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/S07a_trigger.unity
+  isLoaded: 1
+  isActive: 1
