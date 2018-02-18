@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/S07a_trigger.unity
+- path: Assets/Scenes/Midterm.unity
   isLoaded: 1
   isActive: 1

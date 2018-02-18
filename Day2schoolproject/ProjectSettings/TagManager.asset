@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Powercell
+  - prefab0
+  - prefab1
+  - prefab2
+  - prefab3
+  - Parent
   layers:
   - Default
   - TransparentFX

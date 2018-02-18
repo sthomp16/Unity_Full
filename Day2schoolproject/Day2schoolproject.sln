@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2schoolproject", "Day2schoolproject.csproj", "{88119311-0DA4-B822-E09F-1D530F62EFEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2schoolproject.Plugins", "Day2schoolproject.Plugins.csproj", "{DDE8FF16-52CA-02D1-7250-0F4C7AF11D8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2schoolproject.Editor.Plugins", "Day2schoolproject.Editor.Plugins.csproj", "{13A458BC-FAF1-021E-D16D-8DA96DEEF213}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{88119311-0DA4-B822-E09F-1D530F62EFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88119311-0DA4-B822-E09F-1D530F62EFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88119311-0DA4-B822-E09F-1D530F62EFEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE8FF16-52CA-02D1-7250-0F4C7AF11D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE8FF16-52CA-02D1-7250-0F4C7AF11D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE8FF16-52CA-02D1-7250-0F4C7AF11D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE8FF16-52CA-02D1-7250-0F4C7AF11D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A458BC-FAF1-021E-D16D-8DA96DEEF213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A458BC-FAF1-021E-D16D-8DA96DEEF213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A458BC-FAF1-021E-D16D-8DA96DEEF213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A458BC-FAF1-021E-D16D-8DA96DEEF213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
