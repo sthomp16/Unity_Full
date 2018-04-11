@@ -16,6 +16,7 @@ public class DestroySelectedBlcok_10 : MonoBehaviour {
             if(Physics.Raycast(ray, out hit, maxDestroyDistance))
             {
                 Destroy(hit.transform.gameObject);
+
             }
         }
 	}

@@ -10,9 +10,11 @@ public class Collector : MonoBehaviour {
 
     public int count;
     public static int gateKeeper;
+    public static int hp;
     // Use this for initialization
     void Start () {
         count = 0;
+        hp = 3;
         SetCountText();
         winText.text = "";
     }
