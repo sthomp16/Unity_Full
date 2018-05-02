@@ -27,6 +27,8 @@ public class HarvestBlock : MonoBehaviour {
     public Text winText;
     public Text scoreText;
 
+
+
     // int Blockharvested = 0;
     private double score = 1000;
 
@@ -39,6 +41,7 @@ public class HarvestBlock : MonoBehaviour {
         SetBlockText();
         winText.text = "";
         scoreText.text = "";
+        Debug.Log("Require 15 Grass, and Stone And 10 snow. \n Other requirements: 10 Iron,Gold, Electric & 5 Battery");
     }
 
 
@@ -116,7 +119,7 @@ public class HarvestBlock : MonoBehaviour {
             Debug.Log("All prerequisite regular resources aquired");
         }
 
-            if (VRR + VSR == 10)
+        if (VRR + VSR == 10)
         {
             Debug.Log("All prerequisite resources aquired");
             winText.text = "You can go home";

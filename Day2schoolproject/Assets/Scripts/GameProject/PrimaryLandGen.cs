@@ -19,7 +19,7 @@ public class PrimaryLandGen : MonoBehaviour {
         int yBottom = -1; // the bottom offset
         int yGrass = (int)(0.3f * heightScale); // for y = yGrass, yGrass+1, ..., ySnow-1
         int ySnow  = (int)(0.6f * heightScale); // for y = ySnow, ySnow+1, ...
-        int yStone = (int)(0.1f * heightScale); // for y = yStone, yStone+1, ..., ySnow-1
+        int yStone = (int)(0.0f * heightScale); // for y = yStone, yStone+1, ..., ySnow-1
                                                 //
         Random.InitState(System.DateTime.Now.Millisecond);
         float ofsX = Random.Range(0, 10);

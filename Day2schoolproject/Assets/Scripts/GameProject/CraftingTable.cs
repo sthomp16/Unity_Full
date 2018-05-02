@@ -62,6 +62,7 @@ public class CraftingTable : MonoBehaviour {
             delim = 1;        
             Debug.Log("keycode recognition works");
             SetCursorState(delim);
+            SetCursorState(delim);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -70,6 +71,8 @@ public class CraftingTable : MonoBehaviour {
             // GameObject.Find("CraftPanel").SetActive(false);
             Debug.Log("Closing menu");
             SetCursorState(delim);
+            SetCursorState(delim);
+
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -174,24 +177,18 @@ public class CraftingTable : MonoBehaviour {
         Cursor.lockState = wantedMode;
         if (mouse == 1)
         {
-            Debug.Log("Mouse is free");
-            //while (mouse == 1)
-            //{
-                wantedMode = CursorLockMode.None;
-                Cursor.visible = true;
-            //}
-            
+           // Debug.Log("Mouse is free");
+            wantedMode = CursorLockMode.None;
+            Cursor.visible = true;
+
         }
-        else
+        else if (mouse != 1)
         {
-            Debug.Log("Mouse is caged");
-            //while (mouse != 1)
-            //{
-                wantedMode = CursorLockMode.Locked;
-                // Hide cursor when locking
-                Cursor.visible = (CursorLockMode.Locked != wantedMode);
-            //}
-                
+            // Debug.Log("Mouse is caged");
+            wantedMode = CursorLockMode.Locked;
+            // Hide cursor when locking
+            Cursor.visible = (CursorLockMode.Locked != wantedMode);
+
         }
     }
     

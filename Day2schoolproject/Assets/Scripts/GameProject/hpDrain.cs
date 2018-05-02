@@ -8,7 +8,10 @@ public class hpDrain : MonoBehaviour {
     public Text WarningText;
     public Text BatteryText;
     public Text LossText;
-    
+
+    public Image Full;
+    public Image Half;
+    public Image Low;
 
     public static double health;
     private int minecost = 1;
@@ -47,14 +50,20 @@ public class hpDrain : MonoBehaviour {
     {
         if (health > 55)
         {
+            Full.enabled = true;
             WarningText.text = "Sufficent charge";
         }
         else if (health >= 45)
         {
+            Full.enabled = false;
+            Half.enabled = true;
             WarningText.text = "Warning: Half battery";
         }
         else if (health >= 10)
         {
+            // Full.enabled = false;
+            Half.enabled = false;
+            Low.enabled= true;
             WarningText.text = "Warning: Low battery";
         }
         else if (health > 0)
