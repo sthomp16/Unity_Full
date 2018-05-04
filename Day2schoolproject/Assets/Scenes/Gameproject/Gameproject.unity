@@ -476,18 +476,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 65234166}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1204971924}
-  m_Father: {fileID: 821958757}
-  m_RootOrder: 4
+  m_Father: {fileID: 1638475714}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 224, y: -625}
-  m_SizeDelta: {x: 165.4, y: 38.1}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -82.7, y: 0.000030518}
+  m_SizeDelta: {x: 165.40002, y: 38.1}
   m_Pivot: {x: 0.4999999, y: 0.5}
 --- !u!114 &65234168
 MonoBehaviour:
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 325965881}
   - component: {fileID: 325965882}
   m_Layer: 0
-  m_Name: Crafting menu (script)
+  m_Name: Crafting menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,11 +868,14 @@ MonoBehaviour:
   btnElectric: {fileID: 1119697928}
   btnBattery: {fileID: 236075346}
   btnUseBattery: {fileID: 65234168}
-  canvasGroup: {fileID: 1638475715}
+  scriptToggle: {fileID: 1244005360}
   Iron: {fileID: 647914886}
   Gold: {fileID: 1265413390}
   Electric: {fileID: 1720922520}
   Battery: {fileID: 1112135465}
+  ACount: {fileID: 257571032}
+  BCount: {fileID: 109135045}
+  CCount: {fileID: 16143514}
 --- !u!82 &325965882
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1148,10 +1151,10 @@ RectTransform:
   m_Father: {fileID: 637400482}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000015258578}
-  m_SizeDelta: {x: 820, y: 454.68}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.000017166}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494601993
 MonoBehaviour:
@@ -1159,7 +1162,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 494601991}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1534,10 +1537,10 @@ RectTransform:
   m_Father: {fileID: 1638475714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.49993002, y: 1.1599541}
-  m_SizeDelta: {x: 820, y: 454.68}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000022888, y: 0.000022888189}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.50000006, y: 0.49999994}
 --- !u!114 &637400483
 MonoBehaviour:
@@ -1552,7 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1991,7 +1994,6 @@ RectTransform:
   - {fileID: 1337673128}
   - {fileID: 1119697927}
   - {fileID: 236075345}
-  - {fileID: 65234167}
   m_Father: {fileID: 1638475714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -2548,6 +2550,10 @@ Prefab:
       propertyPath: m_MouseLook.lockCursor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -2572,6 +2578,12 @@ MonoBehaviour:
   Full: {fileID: 1804913844}
   Half: {fileID: 1182649521}
   Low: {fileID: 606122568}
+--- !u!114 &1244005360 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1244005354}
+  m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
 --- !u!1 &1265413388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,8 +2910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8657faa37bebf41998d4c9443f5155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRR: 0
-  VSR: 0
   ACount: {fileID: 257571032}
   BCount: {fileID: 109135045}
   CCount: {fileID: 16143514}
@@ -3512,6 +3522,7 @@ RectTransform:
   m_Children:
   - {fileID: 637400482}
   - {fileID: 821958757}
+  - {fileID: 65234167}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

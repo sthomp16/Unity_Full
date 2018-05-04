@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class CraftingTable : MonoBehaviour {
-
+    // Declared buttons to enable crafting
     public Button btnIron;
     public Button btnGold;
     public Button btnElectric;
@@ -15,35 +16,39 @@ public class CraftingTable : MonoBehaviour {
     public static int rGold;
     public static int rElectric;
     public static int rBattery;
-
+    // deliminator for mouse lock state and camera state
     public static int delim;
+
 
     CursorLockMode wantedMode;
 
-    // public GameObject[] menu;
-    public CanvasGroup canvasGroup;
-    // public GameObject CraftPanel;
-    // public 
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController scriptToggle;
 
+    //public Camera playerView;
+
+    // Special resource variables
     public Text Iron;
     public Text Gold;
     public Text Electric;
     public Text Battery;
+    // special resource texts
+    public Text ACount;
+    public Text BCount;
+    public Text CCount;
 
     // Use this for initialization
     void Start () {
         delim = 0;
-        // CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
-        Iron.text = "0";
-        Gold.text = "0";
-        Electric.text = "0";
+        // Setting text for special resources
+        Iron.text = "Iron: 0";
+        Gold.text = "Gold: 0";
+        Electric.text = "Electric: 0";
         // Battery.text = "0";
         rIron = 0;
         rGold = 0;
         rElectric = 0;
         rBattery = 1;
         Battery.text = rBattery.ToString();
-        // menu = GameObject.FindGameObjectsWithTag("CraftPanel");
         // These two should set the mouse properly at the start, don't know why I needed 2
         SetCursorState(delim);
         SetCursorState(delim);
@@ -53,38 +58,45 @@ public class CraftingTable : MonoBehaviour {
         btnElectric.onClick.AddListener(btnElectricOnClick);
         btnBattery.onClick.AddListener(btnBatteryOnClick);
         btnUseBattery.onClick.AddListener(btnUseBatteryOnClick);
+        scriptToggle = GetComponent<FirstPersonController>();
     }
 	
 	// Update is called once per frame
 	void Update () {    
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            delim = 1;        
-            Debug.Log("keycode recognition works");
+            delim = 1;
+            // Debug.Log("keycode recognition works");
+            Debug.Log("Disable first person controll");
+            // Camera.main.GetComponent<FirstPersonController>().enabled = false;
+            //scriptToggle.enabled = false;
+
+            //Camera.main.GetComponent<MouseLook>().lockCursor = false;
+            // calls twice as this is fighting with the unreachable firstpersoncontroller.
+            //Camera.main.enabled = false;
             SetCursorState(delim);
             SetCursorState(delim);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // FirstPersonController.Lock Curser == checked
             delim = 0;
-            // GameObject.Find("CraftPanel").SetActive(false);
-            Debug.Log("Closing menu");
+            Debug.Log("Enable first person controll");
+            //Camera.main.GetComponent<MouseLook>().lockCursor = true;
+            //scriptToggle.enabled = true;
+            // Debug.Log("Closing menu");
+            //Camera.main.enabled = true;
             SetCursorState(delim);
             SetCursorState(delim);
-
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             hpDrain.health += 9999999;
             Debug.Log("Godmode aquired, press key additional times for more health");
-            //FirstPersonController.Lock Curser == unchecked
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
             hpDrain.health = 100;
             Debug.Log("Deactivated Godmode or reset to normal health");
-            //FirstPersonController.Lock Curser == unchecked
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -104,83 +116,15 @@ public class CraftingTable : MonoBehaviour {
         }
 
     }
-    /*
-        public void CraftMenu(int bob)
-        {
-            Debug.Log("Start of CraftMenu"); // old craft menu before new script
-            // CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
-
-            if (bob == 1)
-            {
-                // canvasGroup.alpha = bob;
-                // canvasGroup.alpha
-                // menuToggle();
-                Debug.Log("ITS ALIVE, ALIVE!!!!!");
-                // yield return null;
-                //StartCoroutine(appear(bob));
-                SetCursorState(bob);
-            }
-            else
-            {
-                Debug.Log("Else it is dead jim.");
-            }
-            while (bob == 1)
-            {
-                // This is to check for player input and end while loop
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    // FirstPersonController.Lock Curser == checked
-                    bob = 0;
-                    // GameObject.Find("CraftPanel").SetActive(false);
-                    Debug.Log("It's dead jim.");
-                    CraftMenu(bob);
-                    SetCursorState(bob);
-                }
-                // yield return null;
-                // GameObject.Find("CraftPanel").SetActive(true);
-                 SetCursorState(bob);
-                hpDrain.health += .02;
-            }
-            Debug.Log("Craft table cycle complete.");
-        }
-
-        IEnumerator appear(int bob)
-        {
-            CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
-            if (bob == 1)
-            {
-                canvasGroup.alpha = bob;
-                while (canvasGroup.alpha >= 1)
-                {
-                    canvasGroup.alpha += Time.deltaTime / 2;
-                    yield return null;
-                }
-            }
-            else
-            {
-                canvasGroup.alpha = bob;
-                while (canvasGroup.alpha <= 0)
-                {
-                    canvasGroup.alpha -= Time.deltaTime / 2;
-                    yield return null;
-                }
-            }
-            canvasGroup.interactable = false;
-            yield return null;
-        }
-     */
-    // Use this for initialization
-
     // Apply requested cursor state
     void SetCursorState(int mouse)
     {
         Cursor.lockState = wantedMode;
         if (mouse == 1)
         {
-           // Debug.Log("Mouse is free");
+            // Debug.Log("Mouse is free");
             wantedMode = CursorLockMode.None;
             Cursor.visible = true;
-
         }
         else if (mouse != 1)
         {
@@ -188,7 +132,7 @@ public class CraftingTable : MonoBehaviour {
             wantedMode = CursorLockMode.Locked;
             // Hide cursor when locking
             Cursor.visible = (CursorLockMode.Locked != wantedMode);
-
+            
         }
     }
     
@@ -200,14 +144,13 @@ public class CraftingTable : MonoBehaviour {
             rIron++;
             Debug.Log("rIron = " + rIron);
             Iron.text = "Iron: " + rIron.ToString();
+            SetBlockText();
         }
         else
         {
             Debug.Log("Iron cost is 4 Dirt ");
             Debug.Log("Player attempted to generate resource without sufficent material");
         }
-        
-        
     }
     void btnGoldOnClick()
     {
@@ -218,6 +161,7 @@ public class CraftingTable : MonoBehaviour {
             rGold++;
             Debug.Log("rGold = " + rGold);
             Gold.text = "Gold: " + rGold.ToString();
+            SetBlockText();
         }
         else
         {
@@ -228,12 +172,13 @@ public class CraftingTable : MonoBehaviour {
     }
     void btnElectricOnClick()
     {
-        if (HarvestBlock.blockC >= 3)
+        if (HarvestBlock.blockC >= 2)
         {
             HarvestBlock.blockC = HarvestBlock.blockC - 2;
-            rElectric++;
+            rElectric += 2;
             Debug.Log("rElectric = " + rElectric);
             Electric.text = "Electric: " + rElectric.ToString();
+            SetBlockText();
         }
         else
         {
@@ -257,6 +202,7 @@ public class CraftingTable : MonoBehaviour {
             Iron.text = "Iron: " + rIron.ToString();
             Gold.text = "Gold: " + rGold.ToString();
             Battery.text = "Battery:  " + rBattery.ToString();
+            SetBlockText();
         }
         else
         {
@@ -287,6 +233,17 @@ public class CraftingTable : MonoBehaviour {
         }
         
     }
-
+    // Craftingtable setblocktext to 
+    public void SetBlockText()
+    {
+        if (ACount == null)
+        {
+            Debug.Log("ACount is null!!!!");
+        }
+        ACount.text = "Grass:  " + HarvestBlock.blockA.ToString();
+        BCount.text = "Stone:  " + HarvestBlock.blockB.ToString();
+        CCount.text = "Snow:  " + HarvestBlock.blockC.ToString();
+        // DCount.text = "Battery:  " + blockD.ToString();
+    } // End SetBlockText
 }
 

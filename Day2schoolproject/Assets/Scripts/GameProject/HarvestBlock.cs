@@ -10,14 +10,6 @@ public class HarvestBlock : MonoBehaviour {
     public static int blockA; // Dirt
     public static int blockB; // Stone
     public static int blockC; // Snow
-    // victory condition variables
-    public int VRR;
-    public int VSR;
-    // Crafting table resources converted to shorthand variables for win condition
-    private int Iron = CraftingTable.rIron;
-    private int Gold = CraftingTable.rGold;
-    private int Electric = CraftingTable.rElectric;
-    private int Battery = CraftingTable.rBattery;
 
     public Text ACount;
     public Text BCount;
@@ -98,7 +90,7 @@ public class HarvestBlock : MonoBehaviour {
         }
     }
 
-    private void SetBlockText()
+    public void SetBlockText()
     {
         if (ACount == null)
         {
@@ -108,18 +100,7 @@ public class HarvestBlock : MonoBehaviour {
         BCount.text = "Stone:  " + blockB.ToString();
         CCount.text = "Snow:  " + blockC.ToString();
         // DCount.text = "Battery:  " + blockD.ToString();
-        if (blockA >= 15 && blockB >= 15 && blockC >= 10)
-        {
-            VRR = 5;
-            Debug.Log("All prerequisite regular resources aquired");
-        }
-        if (Iron > 10 && Gold > 10 && Electric > 10 && Battery > 5)
-        {
-            VSR = 5;
-            Debug.Log("All prerequisite regular resources aquired");
-        }
-
-        if (VRR + VSR == 10)
+        if (blockA >= 15 && blockB >= 15 && blockC >= 10 && CraftingTable.rIron >= 10 && CraftingTable.rGold >= 10 && CraftingTable.rElectric >= 10 && CraftingTable.rBattery >= 5)
         {
             Debug.Log("All prerequisite resources aquired");
             winText.text = "You can go home";
